@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, Check, Download, Copy, MessageSquare, Users, Zap, AlertTriangle, Star } from 'lucide-react';
 import { toast } from "sonner";
 import { ChatInterface } from './ChatInterface';
+import { downloadPageAsZip } from '../utils/downloadUtils';
 
 interface Testimonial {
   name: string;
@@ -52,8 +53,15 @@ export const GeneratedPage = ({ content, youtubeUrl, userApiKey, aiInstructions 
     }
   };
   
-  const handleDownload = () => {
-    toast("Download feature coming soon!");
+  const handleDownload = async () => {
+    const pageElement = document.getElementById('generated-page');
+    const success = await downloadPageAsZip(pageElement, content.title);
+    
+    if (success) {
+      toast.success("Downloaded landing page as ZIP!");
+    } else {
+      toast.error("Failed to download. Please try again.");
+    }
   };
   
   return (
