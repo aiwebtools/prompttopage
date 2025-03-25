@@ -2,7 +2,7 @@
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
-export const downloadPageAsZip = async (pageElement: HTMLElement | null, title: string) => {
+export const downloadPageAsZip = async (pageElement: HTMLElement | null, title: string, apiKey?: string, instructions?: string) => {
   if (!pageElement) return;
 
   try {
@@ -12,8 +12,8 @@ export const downloadPageAsZip = async (pageElement: HTMLElement | null, title: 
     // Create a ZIP file
     const zip = new JSZip();
     
-    // Add HTML file
-    zip.file("index.html", createFullHtmlDocument(htmlContent, title, css));
+    // Add HTML file with embedded API key and instructions
+    zip.file("index.html", createFullHtmlDocument(htmlContent, title, css, apiKey, instructions));
     
     // Add assets folder with basic files
     const assetsFolder = zip.folder("assets");
@@ -60,7 +60,15 @@ const getEmbeddedCSS = (): string => {
 };
 
 // Create a complete HTML document with head and necessary meta tags
-const createFullHtmlDocument = (bodyContent: string, title: string, css: string): string => {
+const createFullHtmlDocument = (bodyContent: string, title: string, css: string, apiKey?: string, instructions?: string): string => {
+  // Add script to store API key and instructions in localStorage when the page loads
+  const apiKeyScript = apiKey ? 
+    `
+    // Store API key and instructions in localStorage
+    localStorage.setItem('openai_api_key', '${apiKey}');
+    ${instructions ? `localStorage.setItem('ai_instructions', '${instructions.replace(/'/g, "\\'")}');` : ''}
+    ` : '';
+  
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,6 +78,11 @@ const createFullHtmlDocument = (bodyContent: string, title: string, css: string)
   <style>
     ${css}
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      ${apiKeyScript}
+    });
+  </script>
 </head>
 <body>
   ${bodyContent}

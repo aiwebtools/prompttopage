@@ -59,10 +59,10 @@ export const GeneratedPage = ({ content, youtubeUrl, userApiKey, aiInstructions 
   
   const handleDownload = async () => {
     const pageElement = document.getElementById('generated-page');
-    const success = await downloadPageAsZip(pageElement, content.title);
+    const success = await downloadPageAsZip(pageElement, content.title, userApiKey, aiInstructions);
     
     if (success) {
-      toast.success("Downloaded landing page as ZIP!");
+      toast.success("Downloaded landing page as ZIP! All configurations included.");
     } else {
       toast.error("Failed to download. Please try again.");
     }

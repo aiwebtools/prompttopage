@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from "@/components/ui/card";
 import { ChatInterface } from '../ChatInterface';
 
@@ -11,6 +11,23 @@ interface AIChatSectionProps {
 }
 
 export const AIChatSection = ({ title, description, apiKey, instructions }: AIChatSectionProps) => {
+  const [effectiveApiKey, setEffectiveApiKey] = useState(apiKey);
+  const [effectiveInstructions, setEffectiveInstructions] = useState(instructions);
+  
+  // When used in the standalone exported page, retrieve API key and instructions from localStorage
+  useEffect(() => {
+    const storedApiKey = localStorage.getItem('openai_api_key');
+    const storedInstructions = localStorage.getItem('ai_instructions');
+    
+    if (storedApiKey) {
+      setEffectiveApiKey(storedApiKey);
+    }
+    
+    if (storedInstructions) {
+      setEffectiveInstructions(storedInstructions);
+    }
+  }, []);
+  
   return (
     <section className="py-20 relative">
       <div className="container mx-auto px-4">
@@ -26,8 +43,8 @@ export const AIChatSection = ({ title, description, apiKey, instructions }: AICh
         <div className="max-w-4xl mx-auto">
           <Card className="cyber-card h-[500px] border-cyber-blue/20">
             <ChatInterface 
-              apiKey={apiKey} 
-              instructions={instructions} 
+              apiKey={effectiveApiKey} 
+              instructions={effectiveInstructions} 
               productInfo={{
                 name: title,
                 description: description
