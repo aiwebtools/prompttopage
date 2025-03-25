@@ -18,20 +18,31 @@ export const HeroSection = ({ title, subtitle, description, callToAction, youtub
     <section className="relative min-h-screen flex items-center">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-cyber-grid bg-repeat opacity-10"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-cyber-blue/5 to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-cyber-purple/5 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-cyber-black to-transparent"></div>
         
-        {/* Animated elements */}
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-cyber-blue rounded-full filter blur-[100px] opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-48 h-48 bg-cyber-purple rounded-full filter blur-[120px] opacity-15 animate-pulse"></div>
-        <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-cyber-magenta rounded-full filter blur-[80px] opacity-20 animate-pulse"></div>
+        {/* Shooting stars background */}
+        <div className="stars-container">
+          {Array.from({ length: 20 }).map((_, index) => (
+            <div 
+              key={index} 
+              className="shooting-star"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 15}s`,
+                animationDuration: `${6 + Math.random() * 10}s`
+              }}
+            ></div>
+          ))}
+        </div>
       </div>
       
       <div className="container mx-auto px-4 py-16 z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="lg:w-1/2 space-y-8 animate-fade-in">
             <div className="inline-block">
-              <span className="px-3 py-1 bg-cyber-blue/10 border border-cyber-blue/30 rounded-full text-cyber-blue text-sm">
+              <span className="px-3 py-1 bg-cyber-purple/10 border border-cyber-purple/30 rounded-full text-cyber-purple text-sm">
                 AI-Powered Tool
               </span>
             </div>
