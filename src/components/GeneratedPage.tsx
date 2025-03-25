@@ -144,7 +144,14 @@ export const GeneratedPage = ({ content, youtubeUrl, userApiKey, aiInstructions 
               
               <div className="max-w-4xl mx-auto">
                 <Card className="cyber-card h-[500px] border-cyber-blue/20">
-                  <ChatInterface apiKey={userApiKey} instructions={aiInstructions || ''} />
+                  <ChatInterface 
+                    apiKey={userApiKey} 
+                    instructions={aiInstructions || ''} 
+                    productInfo={{
+                      name: content.title,
+                      description: content.description
+                    }}
+                  />
                 </Card>
               </div>
             </div>

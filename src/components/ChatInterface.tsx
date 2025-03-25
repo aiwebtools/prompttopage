@@ -15,13 +15,13 @@ interface Message {
 interface ChatInterfaceProps {
   apiKey: string;
   instructions: string;
-  productInfo: {
+  productInfo?: {
     name: string;
     description: string;
   };
 }
 
-export const ChatInterface = ({ apiKey, instructions, productInfo }: ChatInterfaceProps) => {
+export const ChatInterface = ({ apiKey, instructions, productInfo = { name: 'AI Assistant', description: 'An intelligent assistant ready to help you.' } }: ChatInterfaceProps) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
