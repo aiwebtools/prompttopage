@@ -89,10 +89,7 @@ const Index = () => {
                 <span className="text-white">AI-Page</span>
               </h1>
               
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Transform any AI product description into a stunning, 
-                cyberpunk-styled landing page with just one prompt.
-              </p>
+              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Transform any AI product description into a stunning, cyberpunk-styled landing page with functional AI w/ just one prompt & your OpenAI API Key.</p>
               
               <div className="relative w-24 h-24 mx-auto mb-12">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue via-cyber-purple to-cyber-magenta rounded-full opacity-70 blur-md animate-pulse"></div>
