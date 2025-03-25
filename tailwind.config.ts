@@ -54,23 +54,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				// Cyberpunk colors
-				cyber: {
-					black: '#050508',
-					blue: '#00f0ff',
-					purple: '#b026ff',
-					magenta: '#ff00e5',
-					green: '#0cff7b'
-				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				'cyber-black': 'hsl(var(--cyber-black))',
+				'cyber-blue': 'hsl(var(--cyber-blue))',
+				'cyber-purple': 'hsl(var(--cyber-purple))',
+				'cyber-magenta': 'hsl(var(--cyber-magenta))',
+				'cyber-teal': 'hsl(var(--cyber-teal))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

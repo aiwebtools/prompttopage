@@ -75,7 +75,7 @@
 
 .cyber-input:focus {
   @apply border-cyber-blue;
-  box-shadow: 0 0 5px theme('colors.cyber-blue');
+  box-shadow: 0 0 5px rgba(0, 240, 255, 0.7);
 }
 
 .animate-fade-in {
@@ -112,7 +112,7 @@
   height: 6px;
   width: 6px;
   margin: 0 1px;
-  background-color: theme('colors.cyber-blue');
+  background-color: rgba(0, 240, 255, 0.7);
   border-radius: 50%;
   opacity: 0.6;
   animation: blink 1.4s infinite both;

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Check, Download, Copy, MessageSquare, Users, Zap, AlertTriangle, Star } from 'lucide-react';
 import { toast } from "sonner";
+import { ChatInterface } from './ChatInterface';
 
 interface Testimonial {
   name: string;
@@ -36,9 +37,11 @@ interface GeneratedContent {
 interface GeneratedPageProps {
   content: GeneratedContent;
   youtubeUrl: string;
+  userApiKey?: string;
+  aiInstructions?: string;
 }
 
-export const GeneratedPage = ({ content, youtubeUrl }: GeneratedPageProps) => {
+export const GeneratedPage = ({ content, youtubeUrl, userApiKey, aiInstructions }: GeneratedPageProps) => {
   const handleCopyHtml = () => {
     const pageElement = document.getElementById('generated-page');
     
@@ -125,6 +128,28 @@ export const GeneratedPage = ({ content, youtubeUrl }: GeneratedPageProps) => {
             </div>
           </div>
         </section>
+        
+        {/* AI Chat Interface Section (if API key is provided) */}
+        {userApiKey && (
+          <section className="py-20 relative">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16 animate-fade-in">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  <span className="cyber-text">AI</span> Assistant
+                </h2>
+                <p className="text-gray-400 max-w-2xl mx-auto">
+                  Chat with our intelligent assistant to learn more
+                </p>
+              </div>
+              
+              <div className="max-w-4xl mx-auto">
+                <Card className="cyber-card h-[500px] border-cyber-blue/20">
+                  <ChatInterface apiKey={userApiKey} instructions={aiInstructions || ''} />
+                </Card>
+              </div>
+            </div>
+          </section>
+        )}
         
         {/* Features Section */}
         <section className="py-20">
