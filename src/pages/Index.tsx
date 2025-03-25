@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
@@ -38,10 +39,23 @@ const Index = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedContent, setGeneratedContent] = useState<GeneratedContent | null>(null);
   const [youtubeUrl, setYoutubeUrl] = useState('');
+  const [userApiKey, setUserApiKey] = useState('');
+  const [aiInstructions, setAiInstructions] = useState('');
+  const [enableAiAgent, setEnableAiAgent] = useState(false);
   
-  const handleGenerate = async (prompt: string, ytUrl: string) => {
+  const handleGenerate = async (
+    prompt: string, 
+    ytUrl: string, 
+    apiKey?: string, 
+    instructions?: string, 
+    enableAi?: boolean
+  ) => {
     setIsGenerating(true);
     setYoutubeUrl(ytUrl);
+    
+    if (apiKey) setUserApiKey(apiKey);
+    if (instructions) setAiInstructions(instructions);
+    if (enableAi !== undefined) setEnableAiAgent(enableAi);
     
     try {
       const content = await generateContent(prompt);
@@ -148,7 +162,12 @@ const Index = () => {
           </div>
         ) : (
           <div className="container mx-auto px-4 py-8 md:py-12">
-            <GeneratedPage content={generatedContent} youtubeUrl={youtubeUrl} />
+            <GeneratedPage 
+              content={generatedContent} 
+              youtubeUrl={youtubeUrl} 
+              userApiKey={enableAiAgent ? userApiKey : undefined}
+              aiInstructions={enableAiAgent ? aiInstructions : undefined}
+            />
           </div>
         )}
       </main>
