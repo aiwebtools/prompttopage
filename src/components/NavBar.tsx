@@ -67,7 +67,7 @@ export const NavBar = () => {
             <Button 
               variant="ghost" 
               className="text-white hover:text-cyber-blue"
-              onClick={() => window.open('https://www.aiwebtools.ai', '_blank')}
+              onClick={() => window.open('https://aiwebtools.lovable.app/?via=aiwebtools', '_blank')}
             >
               <ExternalLink size={18} className="mr-2" />
               More AI Tools
@@ -80,7 +80,7 @@ export const NavBar = () => {
               variant="ghost" 
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
-              className="text-white"
+              className="text-white active:scale-95 transition-transform duration-100"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -89,44 +89,46 @@ export const NavBar = () => {
       </div>
       
       {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden glass-panel animate-fade-in">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Button 
-              variant="ghost" 
-              className="w-full justify-start text-white hover:text-cyber-blue" 
-              onClick={() => scrollToSection('top')}
-            >
-              <Home size={18} className="mr-2" />
-              Home
-            </Button>
-            <Button 
-              variant="ghost" 
-              className="w-full justify-start text-white hover:text-cyber-blue" 
-              onClick={() => scrollToSection('faq')}
-            >
-              <MessageSquare size={18} className="mr-2" />
-              FAQ
-            </Button>
-            <Button 
-              variant="ghost" 
-              className="w-full justify-start text-white hover:text-cyber-blue" 
-              onClick={() => scrollToSection('disclaimer')}
-            >
-              <AlertTriangle size={18} className="mr-2" />
-              Disclaimer
-            </Button>
-            <Button 
-              variant="ghost" 
-              className="w-full justify-start text-white hover:text-cyber-blue"
-              onClick={() => window.open('https://www.aiwebtools.ai', '_blank')}
-            >
-              <ExternalLink size={18} className="mr-2" />
-              More AI Tools
-            </Button>
-          </div>
+      <div 
+        className={`md:hidden overflow-hidden transition-all duration-200 ease-out ${
+          isOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="glass-panel px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <Button 
+            variant="ghost" 
+            className="w-full justify-start text-white hover:text-cyber-blue active:scale-[0.98] transition-transform" 
+            onClick={() => scrollToSection('top')}
+          >
+            <Home size={18} className="mr-2" />
+            Home
+          </Button>
+          <Button 
+            variant="ghost" 
+            className="w-full justify-start text-white hover:text-cyber-blue active:scale-[0.98] transition-transform" 
+            onClick={() => scrollToSection('faq')}
+          >
+            <MessageSquare size={18} className="mr-2" />
+            FAQ
+          </Button>
+          <Button 
+            variant="ghost" 
+            className="w-full justify-start text-white hover:text-cyber-blue active:scale-[0.98] transition-transform" 
+            onClick={() => scrollToSection('disclaimer')}
+          >
+            <AlertTriangle size={18} className="mr-2" />
+            Disclaimer
+          </Button>
+          <Button 
+            variant="ghost" 
+            className="w-full justify-start text-white hover:text-cyber-blue active:scale-[0.98] transition-transform"
+            onClick={() => window.open('https://aiwebtools.lovable.app/?via=aiwebtools', '_blank')}
+          >
+            <ExternalLink size={18} className="mr-2" />
+            More AI Tools
+          </Button>
         </div>
-      )}
+      </div>
     </header>
   );
 };

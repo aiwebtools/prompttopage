@@ -104,7 +104,7 @@ export const Footer = () => {
           </p>
           <div className="flex space-x-4">
             <a 
-              href="https://www.aiwebtools.ai" 
+              href="https://aiwebtools.lovable.app/?via=aiwebtools" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-400 hover:text-cyber-blue transition duration-200"

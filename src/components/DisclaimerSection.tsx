@@ -23,7 +23,7 @@ export const DisclaimerSection = ({ disclaimer }: DisclaimerSectionProps) => {
             
             <div className="mt-6 pt-6 border-t border-cyber-blue/20 flex flex-wrap gap-4">
               <a 
-                href="https://aiwebtools.ai/terms-of-services" 
+                href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-cyber-blue hover:underline"
