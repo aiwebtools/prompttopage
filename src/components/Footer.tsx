@@ -79,7 +79,7 @@ export const Footer = () => {
             
             <div className="pt-4 space-y-2">
               <a 
-                href="https://aiwebtools.ai/terms-of-services" 
+                href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="block text-gray-400 hover:text-cyber-blue transition duration-200"
