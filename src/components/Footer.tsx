@@ -19,7 +19,7 @@ export const Footer = () => {
             <div className="pt-2">
               <Button 
                 className="cyber-button rounded-full px-6"
-                onClick={() => window.open('https://www.aiwebtools.ai', '_blank')}
+                onClick={() => window.open('https://aiwebtools.lovable.app/?via=aiwebtools', '_blank')}
               >
                 <span className="mr-2">More AI Tools</span>
                 <ExternalLink size={16} />
