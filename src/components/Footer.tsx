@@ -19,7 +19,7 @@ export const Footer = () => {
             <div className="pt-2">
               <Button 
                 className="cyber-button rounded-full px-6"
-                onClick={() => window.open('https://www.aiwebtools.ai', '_blank')}
+                onClick={() => window.open('https://aiwebtools.lovable.app/?via=aiwebtools', '_blank')}
               >
                 <span className="mr-2">More AI Tools</span>
                 <ExternalLink size={16} />
@@ -47,7 +47,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://www.aiwebtools.ai" 
+                  href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-gray-400 hover:text-cyber-blue transition duration-200"
@@ -79,7 +79,7 @@ export const Footer = () => {
             
             <div className="pt-4 space-y-2">
               <a 
-                href="https://aiwebtools.ai/terms-of-services" 
+                href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="block text-gray-400 hover:text-cyber-blue transition duration-200"
@@ -104,7 +104,7 @@ export const Footer = () => {
           </p>
           <div className="flex space-x-4">
             <a 
-              href="https://www.aiwebtools.ai" 
+              href="https://aiwebtools.lovable.app/?via=aiwebtools" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-400 hover:text-cyber-blue transition duration-200"

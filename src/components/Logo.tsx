@@ -28,7 +28,7 @@ export const Logo = ({ name }: LogoProps) => {
       <div className="mt-4 text-center">
         <p className="text-xl font-bold text-white">{name}</p>
         <a 
-          href="https://www.aiwebtools.ai" 
+          href="https://aiwebtools.lovable.app/?via=aiwebtools" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="text-xs text-gray-400 hover:text-cyber-blue transition duration-200"

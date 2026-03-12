@@ -34,9 +34,21 @@
 }
 
 @layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+  
   body {
     @apply bg-background text-foreground;
     margin: 0;
+    overflow-x: hidden;
+    min-height: 100dvh;
   }
 }
 
